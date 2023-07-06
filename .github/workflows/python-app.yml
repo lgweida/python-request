@@ -43,5 +43,5 @@ jobs:
       uses: hisasann/simple-github-auto-push@main
       #uses: ad-m/github-push-action@master
       with:
-        BITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         BRANCH_NAME: main
