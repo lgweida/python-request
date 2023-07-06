@@ -7,45 +7,20 @@ on:
   push:
     branches: [ "main" ]
   
-permissions:
-  contents: read
-
 jobs:
   build:
-
     runs-on: self-hosted
-
     steps:
-    - uses: actions/checkout@v2
-      with:
-        persist-credential: false
-        fetch-depth: 0        
-    #- name: Set up Python 3.10
-     # uses: actions/setup-python@v3
-      #with:
-       # python-version: "3.10"
-    - name: Install dependencies
-      run: |
-        python -m pip install --upgrade pip
-        pip install flake8 pytest
-        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+    - name: Checkot Repo
+      uses: actions/checkout@v3
     - name:   run fetch request 
       run: |
-        python main.py >out.txt
+        python main.py >> out.txt
         cat out.txt 
     - name: Commit files
       run: |
-        git config --global user.email "ligu2006@gmail.com "
-        git config --global user.name "lgweida"
+        #git config  user.email "ligu2006@gmail.com "
+        #git config  user.name "lgweida"
         git add .
         git commit -m "add out.txt"
-    - name: push changes
-      #uses: ad-m/github-push-action@master
-      uses: hisasann/simple-github-auto-push@main
-      env:
-        GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
-      #uses: ad-m/github-push-action@master
-      with:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        branch: main
-   
+        git push
