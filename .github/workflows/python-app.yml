@@ -31,6 +31,7 @@ jobs:
         git config --global user.email "ligu2006@gmail.com"
         git config --global user.name "lgweida"
         python main.py >out.txt
+        cat out.txt |jq
         git add .
         git commit -m "add out.txt"
         git push
