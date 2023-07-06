@@ -1,7 +1,7 @@
 # This workflow will install Python dependencies, run tests and lint with a single version of Python
 # For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-python
 
-name: Python application
+name: Python application -
 
 on:
   push:
@@ -28,6 +28,9 @@ jobs:
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
     - name:   run fetch request 
       run: |
+        git config --global user.email "ligu2006@gmail.com"
+        git config --global user.name "lgweida"
         python main.py >out.txt
         git add .
         git commit -m "add out.txt"
+        git push
