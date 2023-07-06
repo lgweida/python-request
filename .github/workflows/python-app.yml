@@ -29,7 +29,7 @@ jobs:
     - name:   run fetch request 
       run: |
         python main.py >out.txt
-        cat out.txt |jq
+        cat out.txt 
         git add .
         git commit -m "add out.txt"
         git config --global user.email "ligu2006@gmail.com"
