@@ -40,8 +40,8 @@ jobs:
         git add .
         git commit -m "add out.txt"
     - name: push changes
-      uses: ad-m/github-push-action@master
-      #uses: hisasann/simple-github-auto-push@main
+      #uses: ad-m/github-push-action@master
+      uses: hisasann/simple-github-auto-push@main
       env:
         GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
       #uses: ad-m/github-push-action@master
