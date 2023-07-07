@@ -2,8 +2,6 @@
 # For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-python
 
 name: Python application
-env:
-  FETCH_URL: ${{ env.FETCH_URL }}
 on:
   push:
     branches: [ "main" ]
@@ -11,13 +9,13 @@ on:
 jobs:
   build:
     runs-on: self-hosted
-    name: ${{ secrets.SuperSecret }}
     steps:
     - name: Checkot Repository
       uses: actions/checkout@v3
     - name:   run fetch request 
       run: |
-        echo  FETCH_URL = ${{ env.FETCH_URL }}
+        export  FETCH_URL=${{ secrets.FETCH_URL }}
+        echo $FETCH_URL
         python main.py > out.txt
         cat out.txt 
     - name: Commit files
