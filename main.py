@@ -1,5 +1,6 @@
 import requests
 import json
+import os
 
 FETCH_API = os.env.get('FETCH_URL')
 res = requests.get(FETCH_API)
