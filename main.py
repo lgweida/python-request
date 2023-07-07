@@ -2,7 +2,7 @@ import requests
 import json
 import os
 
-FETCH_API = os.env.get('FETCH_URL')
+FETCH_API = os.environ['FETCH_URL']
 res = requests.get(FETCH_API)
 
 json_object = res.json()
