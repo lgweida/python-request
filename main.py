@@ -1,7 +1,8 @@
 import requests
 import json
 
-res = requests.get("http://129.213.18.27:5010/")
+FETCH_API = os.env.get('FETCH_URL')
+res = requests.get(FETCH_API)
 
 json_object = res.json()
 
