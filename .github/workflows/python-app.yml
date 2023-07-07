@@ -15,7 +15,7 @@ jobs:
       uses: actions/checkout@v3
     - name:   run fetch request 
       run: |
-        python main.py >> out.txt
+        python main.py > out.txt
         cat out.txt 
     - name: Commit files
       run: |
